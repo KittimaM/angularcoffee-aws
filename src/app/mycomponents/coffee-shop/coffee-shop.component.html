@@ -1,0 +1,53 @@
+<h1>Awesome Shop!</h1><br><br><br>
+<hr>
+<div>
+    <form [formGroup]="coffeeForm" (ngSubmit)="submitorder()">
+
+        <div>
+            <label>Name : <input  formControlName="NameForm"></label>
+            <span style="color: red" *ngIf="coffeeForm.get('NameForm')?.errors?.['required']"> *Name is Required</span>
+        </div>
+
+        <div>
+            <label>Email : <input formControlName="EmailForm"></label>
+            <span style="color: red" *ngIf="coffeeForm.get('EmailForm')?.errors?.['required']"> *Email is Required</span>
+            <span style="color: red" *ngIf="coffeeForm.get('EmailForm')?.errors?.['email']"> *Email is Invalid</span>
+        </div>
+
+        <div>
+            <label>Phone : <input formControlName="PhoneForm"></label>
+            <span style="color: red" *ngIf="coffeeForm.get('PhoneForm')?.errors?.['required']"> *Phone number is Required</span>
+        </div>
+
+        <div>
+            <select formControlName="DrinkForm">
+              <option selected value="">What would you like to drink ?</option>
+              <option value="Americano">Americano</option>
+              <option value="Latte">Latte</option>
+              <option value="Epresso">Epresso</option>
+              <option value="Mocha">Mocha</option>
+            </select>
+            <span style="color: red " *ngIf="coffeeForm.get('DrinkForm')?.errors?.['required'] "> *Order is Required</span>
+        </div>
+
+        <div>
+            <div class="form-check">
+                <label>Hot or Cold?</label><br/>
+                <input type="radio" formControlName="TemForm" value="hot"> hot <br/>
+                <input type="radio" formControlName="TemForm" value="cold"> cold <br/>
+                <span style="color: red " *ngIf="coffeeForm.get('TemForm')?.errors?.['required'] "> *Order is Required</span>
+            </div>
+        </div>
+
+        <div>
+            <input type="checkbox" formControlName="TextForm"> Send me a message when my order is ready
+        </div>
+        <button [disabled]="coffeeForm.invalid" type="submit" (click)="submitorder()">Place Order</button><br><br>
+        <hr>
+        <!-- [disabled]="coffeeForm.invalid " -->
+    </form>
+    <h3>Order Confirmattion</h3>
+    <p style="color: green "> <br/> {{ order.message }}<br> <br>{{ order | json }}
+
+    </p>
+</div>

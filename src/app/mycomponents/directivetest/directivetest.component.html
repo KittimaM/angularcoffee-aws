@@ -1,0 +1,20 @@
+<p>directivetest works!</p>
+<h4>List of student</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>email</th>
+            <th>major</th>
+            <th>year</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let s of students">
+        <td>{{ s.name }}</td>
+        <td>{{ s.email }}</td>
+        <td><span *ngIf="s.major != 'cs' ">{{ s.major }} </span>
+            <span *ngIf="s.major == 'cs'"><u>{{ s.major }}</u></span></td>
+        <td>{{ s.year }}</td>
+
+    </tr>
+</table>

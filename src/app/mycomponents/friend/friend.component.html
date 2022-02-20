@@ -1,0 +1,39 @@
+<h1>Friend Form</h1>
+<form [formGroup]="friendForm">
+    <div>
+        <label> FriendName : </label>
+        <!-- <input [(ngModel)]="friend.name" formControlName="FriendName">
+        <input [ngModel]="friend.name" formControlName="FriendName"> -->
+        <input formControlName="FriendName">
+    </div>
+    <div>
+        <label> Email : </label>
+        <!-- <input [(ngModel)]="friend.email" formControlName="FriendEmail">
+        <input [ngModel]="friend.email" formControlName="FriendEmail"> -->
+        <input formControlName="FriendEmail">
+    </div>
+    <div>
+        <label> Age : </label>
+        <!-- <input [(ngModel)]="friend.age" formControlName="FriendAge">
+        <input [ngModel]="friend.age" formControlName="FriendAge"> -->
+        <input formControlName="FriendAge">
+    </div>
+    <button type="submit" (click)="changeDefaultName()">SubMit</button>
+
+</form>
+<div>
+    <p><b>Retrieve value from the form: </b>
+        <br/> {{ friendForm.value | json }}
+        <br/> {{ friendForm.value.friendname }}
+        <br/> {{ friendForm.value.email }}
+        <br/> {{ friendForm.value.age }}
+    </p>
+</div>
+<div>
+    <p><b>Retrieve value from the data model: </b>
+        <br/> {{friend.name }}
+        <br/> {{ friend.email }}
+        <br/> {{ friend.age }}
+    </p>
+</div>
+<!-- <button (click)="changeDefaultName()" class="btn btn-primary">Click to change the name</button> -->
